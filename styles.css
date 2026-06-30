@@ -530,8 +530,7 @@ html[lang="en"] .product-card p {
 
 .application-grid,
 .timeline,
-.download-grid,
-.client-grid {
+.download-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
@@ -608,42 +607,39 @@ html[lang="en"] .product-card p {
   max-width: 1180px;
   margin: 34px auto 0;
   overflow: hidden;
+  border-radius: 8px;
 }
 
-.client-grid {
-  --client-logo-gap-half: 9px;
+.client-marquee-track {
   display: flex;
   width: max-content;
-  max-width: none;
   gap: 18px;
-  overflow: visible;
-  animation: client-logo-scroll 40s linear infinite;
-  will-change: transform;
+  padding: 18px;
+  animation: client-marquee-loop 42s linear infinite;
 }
 
-.client-grid:hover,
-.client-grid:active {
+.client-marquee:hover .client-marquee-track {
   animation-play-state: paused;
 }
 
 .client-card {
-  flex: 0 0 190px;
+  flex: 0 0 170px;
   display: grid;
-  grid-template-rows: minmax(128px, 1fr) auto;
-  gap: 16px;
+  grid-template-rows: 96px auto;
+  gap: 14px;
   align-items: center;
-  min-height: 210px;
-  padding: 22px;
+  min-height: 158px;
+  padding: 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--mist);
-  box-shadow: none;
+  background: #fff;
+  box-shadow: var(--shadow);
 }
 
 .client-card img {
   width: 100%;
-  height: 128px;
-  max-width: 168px;
+  height: 96px;
+  max-width: 118px;
   margin: 0 auto;
   object-fit: contain;
 }
@@ -656,17 +652,13 @@ html[lang="en"] .product-card p {
   text-align: center;
 }
 
-.client-card-clone {
-  display: grid;
-}
-
-@keyframes client-logo-scroll {
+@keyframes client-marquee-loop {
   from {
     transform: translateX(0);
   }
 
   to {
-    transform: translateX(calc(-50% - var(--client-logo-gap-half)));
+    transform: translateX(calc(-50% - 9px));
   }
 }
 
@@ -944,8 +936,7 @@ html[lang="en"] .product-card p {
   .product-grid,
   .application-grid,
   .timeline,
-  .download-grid,
-  .client-grid {
+  .download-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1057,18 +1048,13 @@ html[lang="en"] .product-card p {
   .product-grid,
   .application-grid,
   .timeline,
-  .download-grid,
-  .client-grid {
+  .download-grid {
     grid-template-columns: 1fr;
   }
 
-  .client-grid {
-    --client-logo-gap-half: 6px;
+  .client-marquee-track {
     gap: 12px;
     padding: 0 16px 10px;
-    overscroll-behavior-x: contain;
-    scroll-padding: 16px;
-    -webkit-overflow-scrolling: touch;
     animation-duration: 30s;
   }
 
@@ -1108,7 +1094,7 @@ html[lang="en"] .product-card p {
   .application-grid,
   .timeline,
   .download-grid,
-  .client-grid {
+  .client-marquee {
     gap: 14px;
     margin-top: 24px;
   }
