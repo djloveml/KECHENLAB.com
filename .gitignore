@@ -1,0 +1,4 @@
+.agents/
+server.*.log
+*.tmp
+*.bak
