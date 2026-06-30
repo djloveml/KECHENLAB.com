@@ -638,6 +638,10 @@ html[lang="en"] .product-card p {
   text-align: center;
 }
 
+.client-card-clone {
+  display: none;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -1048,14 +1052,29 @@ html[lang="en"] .product-card p {
   .client-grid {
     display: flex;
     gap: 12px;
+    width: max-content;
+    max-width: none;
     margin-right: -16px;
     margin-left: -16px;
     padding: 0 16px 10px;
-    overflow-x: auto;
+    overflow: visible;
     overscroll-behavior-x: contain;
     scroll-padding: 16px;
-    scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
+    animation: client-logo-scroll 30s linear infinite;
+    will-change: transform;
+  }
+
+  .clients {
+    overflow: hidden;
+  }
+
+  .client-grid:active {
+    animation-play-state: paused;
+  }
+
+  .client-card-clone {
+    display: grid;
   }
 
   .section,
@@ -1145,6 +1164,16 @@ html[lang="en"] .product-card p {
 
   .client-card span {
     text-align: center;
+  }
+
+  @keyframes client-logo-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 6px));
+    }
   }
 
   .table-scroll-hint {
