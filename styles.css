@@ -347,22 +347,10 @@ section[id] {
   padding: 24px;
 }
 
-.product-icon {
-  display: inline-grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border-radius: 8px;
-  color: #fff;
-  background: var(--teal-dark);
-  font-size: 13px;
-  font-weight: 850;
-}
-
 .product-card h3,
 .application-grid h3,
 .timeline h3 {
-  margin: 18px 0 8px;
+  margin: 0 0 10px;
   font-size: 20px;
   line-height: 1.25;
 }
