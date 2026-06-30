@@ -1010,6 +1010,19 @@ html[lang="en"] .product-card p {
     grid-template-columns: 1fr;
   }
 
+  .client-grid {
+    display: flex;
+    gap: 12px;
+    margin-right: -16px;
+    margin-left: -16px;
+    padding: 0 16px 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding: 16px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .section,
   .band {
     padding: 58px 16px;
@@ -1082,10 +1095,12 @@ html[lang="en"] .product-card p {
   }
 
   .client-card {
+    flex: 0 0 168px;
     grid-template-columns: 1fr;
     grid-template-rows: minmax(104px, 1fr) auto;
     min-height: 178px;
     padding: 16px;
+    scroll-snap-align: start;
   }
 
   .client-card img {
