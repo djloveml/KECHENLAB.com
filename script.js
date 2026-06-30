@@ -31,7 +31,7 @@ nav.addEventListener("click", (event) => {
 
 const motionSafe = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealItems = document.querySelectorAll(
-  ".product-card, .application-grid article, .spec-table-wrap, .client-card, .download-card, .timeline article, .contact-copy, .contact-form"
+  ".product-card, .application-grid article, .spec-table-wrap, .download-card, .timeline article, .contact-copy, .contact-form"
 );
 
 if (motionSafe && "IntersectionObserver" in window) {
