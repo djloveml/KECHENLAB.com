@@ -369,6 +369,10 @@ html[lang="en"] .hero-copy {
   line-height: 1.25;
 }
 
+.timeline h3 {
+  margin: 18px 0 10px;
+}
+
 .product-card h3 {
   min-height: 50px;
 }
@@ -382,6 +386,10 @@ html[lang="en"] .product-card h3 {
 .timeline p {
   margin: 0;
   color: var(--muted);
+}
+
+.timeline p {
+  margin-top: 2px;
 }
 
 html[lang="en"] .product-card p {
