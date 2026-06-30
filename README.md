@@ -5,6 +5,7 @@
 ## 文件
 
 - `index.html`：页面结构与中文内容
+- `en.html`：英文版页面
 - `styles.css`：响应式视觉样式
 - `script.js`：移动端导航与滚动状态
 - `assets/kechenlab-incubator-hero.png`：首屏产品图
@@ -13,6 +14,8 @@
 ## 预览
 
 直接用浏览器打开 `index.html` 即可预览，不需要安装依赖或启动开发服务器。
+
+英文版入口是 `en.html`。
 
 ## 产品 PDF
 

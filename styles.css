@@ -133,6 +133,18 @@ section[id] {
   background: var(--teal);
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font-weight: 850;
+}
+
 .nav-toggle {
   display: none;
   width: 42px;
@@ -614,6 +626,10 @@ section[id] {
 
   .nav-cta {
     text-align: center;
+  }
+
+  .lang-switch {
+    margin-top: 8px;
   }
 
   .hero {
