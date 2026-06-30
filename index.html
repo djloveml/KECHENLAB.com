@@ -347,51 +347,53 @@
       </section>
 
       <section class="section contact" id="contact" aria-labelledby="contact-title">
-        <div class="contact-copy">
-          <div>
-            <div class="section-kicker">Contact</div>
-            <h2 id="contact-title">告诉我们你的实验条件，获取产品选型建议。</h2>
+        <div class="contact-inner">
+          <div class="contact-copy">
+            <div>
+              <div class="section-kicker">Contact</div>
+              <h2 id="contact-title">告诉我们你的实验条件，获取产品选型建议。</h2>
+            </div>
+            <p>
+              请提交应用场景、温湿度范围、容量、光照、振荡或干燥需求。销售或技术团队可据此整理设备配置、交付周期和预算区间。
+            </p>
+            <div class="contact-points">
+              <span>24 小时内响应</span>
+              <span>支持定制配置</span>
+              <span>可提供远程与数据记录选配</span>
+            </div>
           </div>
-          <p>
-            请提交应用场景、温湿度范围、容量、光照、振荡或干燥需求。销售或技术团队可据此整理设备配置、交付周期和预算区间。
-          </p>
-          <div class="contact-points">
-            <span>24 小时内响应</span>
-            <span>支持定制配置</span>
-            <span>可提供远程与数据记录选配</span>
-          </div>
+          <form class="contact-form" action="mailto:sales@kechenlab.com" method="post" enctype="text/plain">
+            <label>
+              姓名 *
+              <input name="name" autocomplete="name" required data-required-submit>
+            </label>
+            <label>
+              手机号 *
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required data-required-submit>
+            </label>
+            <label>
+              邮箱
+              <input type="email" name="email" autocomplete="email">
+            </label>
+            <label>
+              目标产品
+              <select name="product">
+                <option>人工气候箱</option>
+                <option>恒温恒湿箱</option>
+                <option>恒温光照箱 / 植物培养箱</option>
+                <option>生化培养箱 / 电热培养箱</option>
+                <option>干燥箱 / 真空干燥箱</option>
+                <option>全温振荡培养箱</option>
+                <option>需要协助选型</option>
+              </select>
+            </label>
+            <label>
+              需求说明
+              <textarea name="message" rows="5" placeholder="例如：植物培养，450 L，温湿度和光照编程，需要 4G 远程和数据记录"></textarea>
+            </label>
+            <button class="button primary" type="submit" disabled>发送询盘</button>
+          </form>
         </div>
-        <form class="contact-form" action="mailto:sales@kechenlab.com" method="post" enctype="text/plain">
-          <label>
-            姓名 *
-            <input name="name" autocomplete="name" required data-required-submit>
-          </label>
-          <label>
-            手机号 *
-            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required data-required-submit>
-          </label>
-          <label>
-            邮箱
-            <input type="email" name="email" autocomplete="email">
-          </label>
-          <label>
-            目标产品
-            <select name="product">
-              <option>人工气候箱</option>
-              <option>恒温恒湿箱</option>
-              <option>恒温光照箱 / 植物培养箱</option>
-              <option>生化培养箱 / 电热培养箱</option>
-              <option>干燥箱 / 真空干燥箱</option>
-              <option>全温振荡培养箱</option>
-              <option>需要协助选型</option>
-            </select>
-          </label>
-          <label>
-            需求说明
-            <textarea name="message" rows="5" placeholder="例如：植物培养，450 L，温湿度和光照编程，需要 4G 远程和数据记录"></textarea>
-          </label>
-          <button class="button primary" type="submit" disabled>发送询盘</button>
-        </form>
       </section>
     </main>
 

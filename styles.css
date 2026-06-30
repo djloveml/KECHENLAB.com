@@ -331,12 +331,13 @@ html[lang="en"] .hero-copy {
 }
 
 .section-heading,
-.contact {
+.contact-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
   gap: clamp(32px, 6vw, 76px);
   max-width: 1180px;
   margin: 0 auto;
+  align-items: start;
 }
 
 .section-heading h2,
@@ -349,15 +350,17 @@ html[lang="en"] .hero-copy {
 
 .section-heading p,
 .contact-copy p {
-  margin: 12px 0 0;
+  margin: 0;
   color: var(--muted);
   font-size: 17px;
+  line-height: 1.8;
 }
 
 .section-heading > p,
 .contact-copy > p {
-  align-self: end;
+  align-self: start;
   max-width: 520px;
+  padding-top: 32px;
 }
 
 .contact-copy {
@@ -672,25 +675,27 @@ html[lang="en"] .product-card p {
   font-weight: 850;
 }
 
-.contact {
-  align-items: start;
-}
-
 .contact-points {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
   margin-top: 26px;
 }
 
 .contact-points span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
   padding: 8px 12px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 8px;
   color: var(--teal-dark);
   background: #fff;
   font-size: 13px;
   font-weight: 750;
+  line-height: 1.35;
+  text-align: center;
 }
 
 .contact-form {
@@ -800,7 +805,7 @@ html[lang="en"] .product-card p {
   }
 
   .section-heading,
-  .contact {
+  .contact-inner {
     grid-template-columns: 1fr;
   }
 
@@ -1032,6 +1037,7 @@ html[lang="en"] .product-card p {
   }
 
   .contact-points {
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 

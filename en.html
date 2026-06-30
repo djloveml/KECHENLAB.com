@@ -347,51 +347,53 @@
       </section>
 
       <section class="section contact" id="contact" aria-labelledby="contact-title">
-        <div class="contact-copy">
-          <div>
-            <div class="section-kicker">Contact</div>
-            <h2 id="contact-title">Tell us your lab conditions and get a product recommendation.</h2>
+        <div class="contact-inner">
+          <div class="contact-copy">
+            <div>
+              <div class="section-kicker">Contact</div>
+              <h2 id="contact-title">Tell us your lab conditions and get a product recommendation.</h2>
+            </div>
+            <p>
+              Submit your application, temperature and humidity range, capacity, light, shaking, or drying requirements. Our sales or technical team can prepare a configuration, delivery timeline, and budget range.
+            </p>
+            <div class="contact-points">
+              <span>Response within 24 hours</span>
+              <span>Custom configuration support</span>
+              <span>Remote and data logging options</span>
+            </div>
           </div>
-          <p>
-            Submit your application, temperature and humidity range, capacity, light, shaking, or drying requirements. Our sales or technical team can prepare a configuration, delivery timeline, and budget range.
-          </p>
-          <div class="contact-points">
-            <span>Response within 24 hours</span>
-            <span>Custom configuration support</span>
-            <span>Remote and data logging options</span>
-          </div>
+          <form class="contact-form" action="mailto:sales@kechenlab.com" method="post" enctype="text/plain">
+            <label>
+              Name *
+              <input name="name" autocomplete="name" required data-required-submit>
+            </label>
+            <label>
+              Phone *
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required data-required-submit>
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email">
+            </label>
+            <label>
+              Target product
+              <select name="product">
+                <option>Climate Chamber</option>
+                <option>Temperature Humidity Chamber</option>
+                <option>Light Incubator / Plant Growth Chamber</option>
+                <option>Biochemical / Electric Incubator</option>
+                <option>Drying Oven / Vacuum Drying Oven</option>
+                <option>Shaking Incubator</option>
+                <option>Need selection support</option>
+              </select>
+            </label>
+            <label>
+              Requirement details
+              <textarea name="message" rows="5" placeholder="Example: plant culture, 450 L, temperature, humidity and light programs, 4G remote and data logging required"></textarea>
+            </label>
+            <button class="button primary" type="submit" disabled>Send Inquiry</button>
+          </form>
         </div>
-        <form class="contact-form" action="mailto:sales@kechenlab.com" method="post" enctype="text/plain">
-          <label>
-            Name *
-            <input name="name" autocomplete="name" required data-required-submit>
-          </label>
-          <label>
-            Phone *
-            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required data-required-submit>
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" autocomplete="email">
-          </label>
-          <label>
-            Target product
-            <select name="product">
-              <option>Climate Chamber</option>
-              <option>Temperature Humidity Chamber</option>
-              <option>Light Incubator / Plant Growth Chamber</option>
-              <option>Biochemical / Electric Incubator</option>
-              <option>Drying Oven / Vacuum Drying Oven</option>
-              <option>Shaking Incubator</option>
-              <option>Need selection support</option>
-            </select>
-          </label>
-          <label>
-            Requirement details
-            <textarea name="message" rows="5" placeholder="Example: plant culture, 450 L, temperature, humidity and light programs, 4G remote and data logging required"></textarea>
-          </label>
-          <button class="button primary" type="submit" disabled>Send Inquiry</button>
-        </form>
       </section>
     </main>
 
