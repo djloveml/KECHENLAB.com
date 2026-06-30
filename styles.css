@@ -330,17 +330,15 @@ html[lang="en"] .hero-copy {
   background: var(--mist);
 }
 
-.intro-grid,
 .section-heading,
 .contact {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-  gap: clamp(28px, 6vw, 84px);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: clamp(32px, 6vw, 76px);
   max-width: 1180px;
   margin: 0 auto;
 }
 
-.intro h2,
 .section-heading h2,
 .contact h2 {
   margin: 8px 0 0;
@@ -349,12 +347,41 @@ html[lang="en"] .hero-copy {
   letter-spacing: 0;
 }
 
-.intro p,
 .section-heading p,
 .contact-copy p {
   margin: 12px 0 0;
   color: var(--muted);
   font-size: 17px;
+}
+
+.section-heading > p,
+.contact-copy > p {
+  align-self: end;
+  max-width: 520px;
+}
+
+.contact-copy {
+  display: contents;
+}
+
+.contact-copy > div {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.contact-copy > p {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.contact-points {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.contact-form {
+  grid-column: 2;
+  grid-row: 2 / span 2;
 }
 
 .product-grid {
@@ -772,7 +799,6 @@ html[lang="en"] .product-card p {
     padding: 120px 0 54px;
   }
 
-  .intro-grid,
   .section-heading,
   .contact {
     grid-template-columns: 1fr;
@@ -904,16 +930,32 @@ html[lang="en"] .product-card p {
     padding: 58px 16px;
   }
 
-  .intro h2,
   .section-heading h2,
   .contact h2 {
     font-size: 28px;
   }
 
-  .intro p,
   .section-heading p,
   .contact-copy p {
     font-size: 16px;
+  }
+
+  .section-heading > p,
+  .contact-copy > p {
+    align-self: start;
+    max-width: none;
+  }
+
+  .contact-points {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .contact-copy > div,
+  .contact-copy > p,
+  .contact-form {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .product-grid,
@@ -1050,7 +1092,6 @@ html[lang="en"] .product-card p {
     text-align: right;
   }
 
-  .intro h2,
   .section-heading h2,
   .contact h2 {
     font-size: 25px;
