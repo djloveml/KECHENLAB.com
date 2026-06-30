@@ -9,6 +9,7 @@
 - `styles.css`：响应式视觉样式
 - `script.js`：移动端导航与滚动状态
 - `assets/kechenlab-incubator-hero.png`：首屏产品图
+- `assets/clients/`：合作客户墙图片
 - `downloads/`：客户可下载的产品 PDF 目录
 
 ## 预览
@@ -21,9 +22,6 @@
 
 首页“产品资料下载”区域默认链接以下文件：
 
-- `downloads/constant-temperature-incubator.pdf`
-- `downloads/co2-incubator.pdf`
-- `downloads/mold-incubator.pdf`
-- `downloads/biochemical-incubator.pdf`
+- `downloads/kechen-product-brochure.pdf`
 
-把对应 PDF 放进 `downloads/` 目录即可。如果文件名不同，需要同步修改 `index.html` 里的下载链接。
+把对应 PDF 放进 `downloads/` 目录即可。如果文件名不同，需要同步修改 `index.html` 和 `en.html` 里的下载链接。
