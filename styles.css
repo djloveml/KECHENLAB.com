@@ -606,10 +606,27 @@ html[lang="en"] .product-card p {
 }
 
 .client-grid {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  --client-logo-gap-half: 9px;
+  display: flex;
+  width: max-content;
+  max-width: none;
+  gap: 18px;
+  overflow: visible;
+  animation: client-logo-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.clients {
+  overflow: hidden;
+}
+
+.client-grid:hover,
+.client-grid:active {
+  animation-play-state: paused;
 }
 
 .client-card {
+  flex: 0 0 190px;
   display: grid;
   grid-template-rows: minmax(128px, 1fr) auto;
   gap: 16px;
@@ -639,7 +656,17 @@ html[lang="en"] .product-card p {
 }
 
 .client-card-clone {
-  display: none;
+  display: grid;
+}
+
+@keyframes client-logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - var(--client-logo-gap-half)));
+  }
 }
 
 .reveal {
@@ -1035,31 +1062,15 @@ html[lang="en"] .product-card p {
   }
 
   .client-grid {
-    display: flex;
+    --client-logo-gap-half: 6px;
     gap: 12px;
-    width: max-content;
-    max-width: none;
     margin-right: -16px;
     margin-left: -16px;
     padding: 0 16px 10px;
-    overflow: visible;
     overscroll-behavior-x: contain;
     scroll-padding: 16px;
     -webkit-overflow-scrolling: touch;
-    animation: client-logo-scroll 30s linear infinite;
-    will-change: transform;
-  }
-
-  .clients {
-    overflow: hidden;
-  }
-
-  .client-grid:active {
-    animation-play-state: paused;
-  }
-
-  .client-card-clone {
-    display: grid;
+    animation-duration: 30s;
   }
 
   .section,
@@ -1149,16 +1160,6 @@ html[lang="en"] .product-card p {
 
   .client-card span {
     text-align: center;
-  }
-
-  @keyframes client-logo-scroll {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(calc(-50% - 6px));
-    }
   }
 
   .table-scroll-hint {
