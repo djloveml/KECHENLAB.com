@@ -373,11 +373,19 @@ html[lang="en"] .hero-copy {
   min-height: 50px;
 }
 
+html[lang="en"] .product-card h3 {
+  min-height: 54px;
+}
+
 .product-card p,
 .application-grid p,
 .timeline p {
   margin: 0;
   color: var(--muted);
+}
+
+html[lang="en"] .product-card p {
+  min-height: 104px;
 }
 
 .product-card ul {
@@ -867,6 +875,11 @@ html[lang="en"] .hero-copy {
   }
 
   .product-card h3 {
+    min-height: 0;
+  }
+
+  html[lang="en"] .product-card h3,
+  html[lang="en"] .product-card p {
     min-height: 0;
   }
 
