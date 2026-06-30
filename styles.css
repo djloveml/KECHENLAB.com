@@ -341,6 +341,9 @@ section[id] {
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 24px;
 }
 
@@ -364,6 +367,10 @@ section[id] {
   line-height: 1.25;
 }
 
+.product-card h3 {
+  min-height: 50px;
+}
+
 .product-card p,
 .application-grid p,
 .timeline p {
@@ -372,8 +379,8 @@ section[id] {
 }
 
 .product-card ul {
-  margin: 18px 0 0;
-  padding: 0;
+  margin: auto 0 0;
+  padding: 18px 0 0;
   list-style: none;
 }
 
@@ -846,6 +853,10 @@ section[id] {
   .timeline article,
   .download-card {
     padding: 20px;
+  }
+
+  .product-card h3 {
+    min-height: 0;
   }
 
   .download-card {
