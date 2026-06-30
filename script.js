@@ -74,6 +74,7 @@ document.querySelectorAll(".focus-marquee, .client-marquee").forEach((marquee) =
 
   marquee.addEventListener("pointerdown", (event) => {
     if (event.button !== undefined && event.button !== 0) return;
+    if (event.pointerType !== "touch") return;
     window.clearTimeout(resumeTimer);
     isDragging = true;
     pointerId = event.pointerId;
@@ -96,7 +97,6 @@ document.querySelectorAll(".focus-marquee, .client-marquee").forEach((marquee) =
     marquee.releasePointerCapture?.(event.pointerId);
     resumeTimer = window.setTimeout(() => {
       marquee.classList.remove("is-paused");
-      setDragOffset(0);
     }, 1000);
   }
 
