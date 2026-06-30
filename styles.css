@@ -364,27 +364,19 @@ html[lang="en"] .hero-copy {
 }
 
 .contact-copy {
-  display: contents;
-}
-
-.contact-copy > div {
+  display: grid;
   grid-column: 1;
-  grid-row: 1;
+  gap: 22px;
 }
 
 .contact-copy > p {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.contact-points {
-  grid-column: 1;
-  grid-row: 2;
+  max-width: 620px;
+  padding-top: 0;
 }
 
 .contact-form {
   grid-column: 2;
-  grid-row: 2 / span 2;
+  grid-row: 1;
 }
 
 .product-grid {
@@ -679,7 +671,7 @@ html[lang="en"] .product-card p {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  margin-top: 26px;
+  margin-top: 0;
 }
 
 .contact-points span {
@@ -953,13 +945,7 @@ html[lang="en"] .product-card p {
     max-width: none;
   }
 
-  .contact-points {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .contact-copy > div,
-  .contact-copy > p,
+  .contact-copy,
   .contact-form {
     grid-column: auto;
     grid-row: auto;
