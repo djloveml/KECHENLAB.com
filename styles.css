@@ -339,7 +339,7 @@ html[lang="en"] .hero-copy {
 }
 
 .band {
-  background: var(--mist);
+  background: #fff;
 }
 
 .section-heading,
@@ -459,8 +459,7 @@ html[lang="en"] .hero-copy {
 .product-card:hover,
 .application-grid article:hover,
 .timeline article:hover,
-.download-card:hover,
-.client-card:hover {
+.download-card:hover {
   transform: translateY(-4px);
   border-color: rgba(8, 127, 123, 0.26);
   box-shadow: 0 24px 52px rgba(15, 40, 45, 0.16);
@@ -637,8 +636,8 @@ html[lang="en"] .product-card p {
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
-  box-shadow: var(--shadow);
+  background: var(--mist);
+  box-shadow: none;
 }
 
 .client-card img {
@@ -1118,7 +1117,6 @@ html[lang="en"] .product-card p {
   .application-grid article,
   .timeline article,
   .download-card,
-  .client-card,
   .contact-form {
     box-shadow: 0 12px 26px rgba(15, 40, 45, 0.09);
   }
