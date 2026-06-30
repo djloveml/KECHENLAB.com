@@ -199,6 +199,7 @@ section[id] {
   width: min(760px, calc(100% - 40px));
   margin-left: clamp(20px, 7vw, 96px);
   padding-top: 80px;
+  animation: hero-rise 720ms ease-out both;
 }
 
 .eyebrow,
@@ -256,6 +257,14 @@ html[lang="en"] .hero-copy {
   border-radius: 6px;
   font-weight: 800;
   cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.button:hover,
+.download-link:hover,
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(8, 127, 123, 0.22);
 }
 
 .button.primary {
@@ -352,6 +361,17 @@ html[lang="en"] .hero-copy {
   border-radius: 8px;
   background: var(--panel);
   box-shadow: var(--shadow);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.product-card:hover,
+.application-grid article:hover,
+.timeline article:hover,
+.download-card:hover,
+.client-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(8, 127, 123, 0.26);
+  box-shadow: 0 24px 52px rgba(15, 40, 45, 0.16);
 }
 
 .product-card {
@@ -490,6 +510,7 @@ html[lang="en"] .product-card p {
   color: #fff;
   background: var(--teal);
   font-weight: 800;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .client-grid {
@@ -521,6 +542,30 @@ html[lang="en"] .product-card p {
   font-weight: 800;
   line-height: 1.35;
   text-align: center;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 620ms ease, transform 620ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .spec-table-wrap {
@@ -950,6 +995,22 @@ html[lang="en"] .product-card p {
 
   .site-footer {
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 
