@@ -386,7 +386,6 @@ html[lang="en"] .hero-copy {
 }
 
 .focus-marquee-track {
-  --drag-x: 0px;
   display: flex;
   width: max-content;
   gap: 18px;
@@ -394,9 +393,7 @@ html[lang="en"] .hero-copy {
   animation: focus-marquee-loop 38s linear infinite;
 }
 
-.focus-marquee:hover .focus-marquee-track,
-.focus-marquee.is-dragging .focus-marquee-track,
-.focus-marquee.is-paused .focus-marquee-track {
+.focus-marquee:hover .focus-marquee-track {
   animation-play-state: paused;
 }
 
@@ -410,11 +407,11 @@ html[lang="en"] .hero-copy {
 
 @keyframes focus-marquee-loop {
   from {
-    transform: translateX(var(--drag-x));
+    transform: translateX(0);
   }
 
   to {
-    transform: translateX(calc(-50% - 9px + var(--drag-x)));
+    transform: translateX(calc(-50% - 9px));
   }
 }
 
@@ -616,7 +613,6 @@ html[lang="en"] .product-card p {
 }
 
 .client-marquee-track {
-  --drag-x: 0px;
   display: flex;
   width: max-content;
   gap: 18px;
@@ -624,9 +620,7 @@ html[lang="en"] .product-card p {
   animation: client-marquee-loop 42s linear infinite;
 }
 
-.client-marquee:hover .client-marquee-track,
-.client-marquee.is-dragging .client-marquee-track,
-.client-marquee.is-paused .client-marquee-track {
+.client-marquee:hover .client-marquee-track {
   animation-play-state: paused;
 }
 
@@ -662,11 +656,11 @@ html[lang="en"] .product-card p {
 
 @keyframes client-marquee-loop {
   from {
-    transform: translateX(var(--drag-x));
+    transform: translateX(0);
   }
 
   to {
-    transform: translateX(calc(-50% - 9px + var(--drag-x)));
+    transform: translateX(calc(-50% - 9px));
   }
 }
 
@@ -1211,19 +1205,6 @@ html[lang="en"] .product-card p {
   .reveal {
     opacity: 1;
     transform: none;
-  }
-}
-
-@media (pointer: coarse) {
-  .focus-marquee,
-  .client-marquee {
-    cursor: grab;
-    touch-action: none;
-  }
-
-  .focus-marquee.is-dragging,
-  .client-marquee.is-dragging {
-    cursor: grabbing;
   }
 }
 
