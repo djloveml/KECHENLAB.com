@@ -359,12 +359,16 @@
         </div>
         <form class="contact-form" action="mailto:sales@kechenlab.com" method="post" enctype="text/plain">
           <label>
-            Name
-            <input name="name" autocomplete="name" required>
+            Name *
+            <input name="name" autocomplete="name" required data-required-submit>
+          </label>
+          <label>
+            Phone *
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required data-required-submit>
           </label>
           <label>
             Email
-            <input type="email" name="email" autocomplete="email" required>
+            <input type="email" name="email" autocomplete="email">
           </label>
           <label>
             Target product
@@ -382,7 +386,7 @@
             Requirement details
             <textarea name="message" rows="5" placeholder="Example: plant culture, 450 L, temperature, humidity and light programs, 4G remote and data logging required"></textarea>
           </label>
-          <button class="button primary" type="submit">Send Inquiry</button>
+          <button class="button primary" type="submit" disabled>Send Inquiry</button>
         </form>
       </section>
     </main>

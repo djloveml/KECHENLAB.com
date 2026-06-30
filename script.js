@@ -56,3 +56,16 @@ if (motionSafe && "IntersectionObserver" in window) {
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
+
+document.querySelectorAll(".contact-form").forEach((form) => {
+  const requiredFields = form.querySelectorAll("[data-required-submit]");
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  function syncSubmitState() {
+    const canSubmit = Array.from(requiredFields).every((field) => field.value.trim());
+    submitButton.disabled = !canSubmit;
+  }
+
+  requiredFields.forEach((field) => field.addEventListener("input", syncSubmitState));
+  syncSubmitState();
+});
