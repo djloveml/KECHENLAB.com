@@ -57,6 +57,54 @@ if (motionSafe && "IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
+document.querySelectorAll(".focus-marquee, .client-marquee").forEach((marquee) => {
+  const track = marquee.querySelector(".focus-marquee-track, .client-marquee-track");
+  if (!track) return;
+
+  let isDragging = false;
+  let startX = 0;
+  let dragX = 0;
+  let pointerId = null;
+  let resumeTimer = null;
+
+  function setDragOffset(value) {
+    dragX = value;
+    track.style.setProperty("--drag-x", `${dragX}px`);
+  }
+
+  marquee.addEventListener("pointerdown", (event) => {
+    if (event.button !== undefined && event.button !== 0) return;
+    window.clearTimeout(resumeTimer);
+    isDragging = true;
+    pointerId = event.pointerId;
+    startX = event.clientX - dragX;
+    marquee.classList.add("is-dragging");
+    marquee.setPointerCapture?.(event.pointerId);
+  });
+
+  marquee.addEventListener("pointermove", (event) => {
+    if (!isDragging || event.pointerId !== pointerId) return;
+    setDragOffset(event.clientX - startX);
+  });
+
+  function endDrag(event) {
+    if (!isDragging || (event?.pointerId !== undefined && event.pointerId !== pointerId)) return;
+    isDragging = false;
+    pointerId = null;
+    marquee.classList.remove("is-dragging");
+    marquee.classList.add("is-paused");
+    marquee.releasePointerCapture?.(event.pointerId);
+    resumeTimer = window.setTimeout(() => {
+      marquee.classList.remove("is-paused");
+      setDragOffset(0);
+    }, 1000);
+  }
+
+  marquee.addEventListener("pointerup", endDrag);
+  marquee.addEventListener("pointercancel", endDrag);
+  marquee.addEventListener("lostpointercapture", endDrag);
+});
+
 document.querySelectorAll(".contact-form").forEach((form) => {
   const requiredFields = form.querySelectorAll("[data-required-submit]");
   const phoneField = form.querySelector('input[name="phone"]');

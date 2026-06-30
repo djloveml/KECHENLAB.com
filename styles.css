@@ -382,9 +382,13 @@ html[lang="en"] .hero-copy {
   border-radius: 8px;
   background:
     linear-gradient(90deg, #f8fbfb 0%, rgba(248, 251, 251, 0) 9%, rgba(248, 251, 251, 0) 91%, #f8fbfb 100%);
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .focus-marquee-track {
+  --drag-x: 0px;
   display: flex;
   width: max-content;
   gap: 18px;
@@ -392,8 +396,14 @@ html[lang="en"] .hero-copy {
   animation: focus-marquee-loop 38s linear infinite;
 }
 
-.focus-marquee:hover .focus-marquee-track {
+.focus-marquee:hover .focus-marquee-track,
+.focus-marquee.is-dragging .focus-marquee-track,
+.focus-marquee.is-paused .focus-marquee-track {
   animation-play-state: paused;
+}
+
+.focus-marquee.is-dragging {
+  cursor: grabbing;
 }
 
 .focus-marquee img {
@@ -406,11 +416,11 @@ html[lang="en"] .hero-copy {
 
 @keyframes focus-marquee-loop {
   from {
-    transform: translateX(0);
+    transform: translateX(var(--drag-x));
   }
 
   to {
-    transform: translateX(calc(-50% - 9px));
+    transform: translateX(calc(-50% - 9px + var(--drag-x)));
   }
 }
 
@@ -608,9 +618,13 @@ html[lang="en"] .product-card p {
   margin: 34px auto 0;
   overflow: hidden;
   border-radius: 8px;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .client-marquee-track {
+  --drag-x: 0px;
   display: flex;
   width: max-content;
   gap: 18px;
@@ -618,8 +632,14 @@ html[lang="en"] .product-card p {
   animation: client-marquee-loop 42s linear infinite;
 }
 
-.client-marquee:hover .client-marquee-track {
+.client-marquee:hover .client-marquee-track,
+.client-marquee.is-dragging .client-marquee-track,
+.client-marquee.is-paused .client-marquee-track {
   animation-play-state: paused;
+}
+
+.client-marquee.is-dragging {
+  cursor: grabbing;
 }
 
 .client-card {
@@ -654,11 +674,11 @@ html[lang="en"] .product-card p {
 
 @keyframes client-marquee-loop {
   from {
-    transform: translateX(0);
+    transform: translateX(var(--drag-x));
   }
 
   to {
-    transform: translateX(calc(-50% - 9px));
+    transform: translateX(calc(-50% - 9px + var(--drag-x)));
   }
 }
 
