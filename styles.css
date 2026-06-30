@@ -755,6 +755,7 @@ html[lang="en"] .product-card p {
 }
 
 .contact-form {
+  position: relative;
   display: grid;
   gap: 16px;
   padding: 24px;
@@ -780,20 +781,10 @@ html[lang="en"] .product-card p {
   font: inherit;
 }
 
-.clearable-field {
-  position: relative;
-  display: block;
-}
-
-.clearable-field input,
-.clearable-field textarea {
-  padding-right: 58px;
-}
-
-.field-clear {
+.form-clear {
   position: absolute;
-  top: 50%;
-  right: 12px;
+  top: 24px;
+  right: 24px;
   padding: 2px 0;
   border: 0;
   color: var(--teal);
@@ -802,17 +793,11 @@ html[lang="en"] .product-card p {
   font-size: 13px;
   font-weight: 850;
   line-height: 1;
-  transform: translateY(-50%);
 }
 
-.field-clear:disabled {
+.form-clear:disabled {
   color: #aab7ba;
   cursor: default;
-}
-
-.clearable-field textarea + .field-clear {
-  top: 18px;
-  transform: none;
 }
 
 .contact-form textarea {

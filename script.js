@@ -161,32 +161,29 @@ document.querySelectorAll(".contact-form").forEach((form) => {
     submitButton.disabled = !canSubmit;
   }
 
-  function syncClearButton(field, button) {
-    button.disabled = !field.value;
+  const clearableFields = form.querySelectorAll('input:not([type="hidden"]), textarea');
+  const formClearButton = document.createElement("button");
+  formClearButton.className = "form-clear";
+  formClearButton.type = "button";
+  formClearButton.textContent = text.clear;
+  formClearButton.setAttribute("aria-label", text.clear);
+  form.insertBefore(formClearButton, form.firstElementChild);
+
+  function syncFormClearButton() {
+    formClearButton.disabled = !Array.from(clearableFields).some((field) => field.value);
   }
 
-  const clearableFields = form.querySelectorAll('input:not([type="hidden"]), textarea');
   clearableFields.forEach((field) => {
-    const wrapper = document.createElement("span");
-    wrapper.className = "clearable-field";
-    field.parentNode.insertBefore(wrapper, field);
-    wrapper.appendChild(field);
+    field.addEventListener("input", syncFormClearButton);
+  });
 
-    const clearButton = document.createElement("button");
-    clearButton.className = "field-clear";
-    clearButton.type = "button";
-    clearButton.textContent = text.clear;
-    clearButton.setAttribute("aria-label", text.clear);
-    wrapper.appendChild(clearButton);
-
-    field.addEventListener("input", () => syncClearButton(field, clearButton));
-    clearButton.addEventListener("click", () => {
-      if (!field.value) return;
+  formClearButton.addEventListener("click", () => {
+    if (formClearButton.disabled) return;
+    clearableFields.forEach((field) => {
       field.value = "";
       field.dispatchEvent(new Event("input", { bubbles: true }));
-      field.focus();
     });
-    syncClearButton(field, clearButton);
+    clearableFields[0]?.focus();
   });
 
   requiredFields.forEach((field) => field.addEventListener("input", syncSubmitState));
@@ -230,9 +227,7 @@ document.querySelectorAll(".contact-form").forEach((form) => {
       }
 
       form.reset();
-      form.querySelectorAll(".clearable-field input, .clearable-field textarea").forEach((field) => {
-        field.dispatchEvent(new Event("input", { bubbles: true }));
-      });
+      syncFormClearButton();
       setStatus(text.success, "success");
     } catch (error) {
       if (window.location.protocol === "file:") {
@@ -248,4 +243,5 @@ document.querySelectorAll(".contact-form").forEach((form) => {
   });
 
   syncSubmitState();
+  syncFormClearButton();
 });
