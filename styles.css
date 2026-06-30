@@ -363,6 +363,52 @@ html[lang="en"] .hero-copy {
   padding-top: 32px;
 }
 
+.focus-marquee {
+  max-width: 1180px;
+  margin: 34px auto 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, #f8fbfb 0%, rgba(248, 251, 251, 0) 9%, rgba(248, 251, 251, 0) 91%, #f8fbfb 100%);
+}
+
+.focus-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  padding: 18px;
+  animation: focus-marquee-left-to-right 38s linear infinite;
+}
+
+.focus-marquee:hover .focus-marquee-track {
+  animation-play-state: paused;
+}
+
+.focus-marquee img {
+  flex: 0 0 auto;
+  width: clamp(150px, 16vw, 220px);
+  height: clamp(210px, 24vw, 320px);
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(15, 40, 45, 0.12));
+}
+
+@keyframes focus-marquee-left-to-right {
+  from {
+    transform: translateX(calc(-50% - 9px));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focus-marquee-track {
+    animation: none;
+    overflow-x: auto;
+  }
+}
+
 .contact-copy {
   display: grid;
   grid-column: 1;
@@ -720,6 +766,26 @@ html[lang="en"] .product-card p {
 
 .contact-form textarea {
   resize: vertical;
+}
+
+.form-status {
+  min-height: 22px;
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.form-status[data-status="success"] {
+  color: var(--teal-dark);
+}
+
+.form-status[data-status="error"] {
+  color: #a33120;
+}
+
+.form-status[data-status="info"] {
+  color: var(--graphite);
 }
 
 .site-footer {

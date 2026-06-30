@@ -78,6 +78,30 @@
             Kechen builds cost-effective domestic laboratory equipment with reliable quality and practical innovation.
           </p>
         </div>
+        <div class="focus-marquee" aria-label="Automatic product image showcase">
+          <div class="focus-marquee-track">
+            <img src="assets/product-cutouts/product-312.png" alt="Kechen laboratory equipment product photo 1">
+            <img src="assets/product-cutouts/product-313.png" alt="Kechen laboratory equipment product photo 2">
+            <img src="assets/product-cutouts/product-314.png" alt="Kechen laboratory equipment product photo 3">
+            <img src="assets/product-cutouts/product-315.png" alt="Kechen laboratory equipment product photo 4">
+            <img src="assets/product-cutouts/product-316.png" alt="Kechen laboratory equipment product photo 5">
+            <img src="assets/product-cutouts/product-317.png" alt="Kechen laboratory equipment product photo 6">
+            <img src="assets/product-cutouts/product-319.png" alt="Kechen laboratory equipment product photo 7">
+            <img src="assets/product-cutouts/product-320.png" alt="Kechen laboratory equipment product photo 8">
+            <img src="assets/product-cutouts/product-321.png" alt="Kechen laboratory equipment product photo 9">
+            <img src="assets/product-cutouts/product-322.png" alt="Kechen laboratory equipment product photo 10">
+            <img src="assets/product-cutouts/product-312.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-313.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-314.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-315.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-316.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-317.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-319.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-320.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-321.png" alt="" aria-hidden="true">
+            <img src="assets/product-cutouts/product-322.png" alt="" aria-hidden="true">
+          </div>
+        </div>
       </section>
 
       <section class="section products" id="products" aria-labelledby="products-title">
@@ -362,18 +386,18 @@
               <span>Remote and data logging options</span>
             </div>
           </div>
-          <form class="contact-form" action="mailto:sales@kechenlab.com" method="post" enctype="text/plain">
+          <form class="contact-form" action="api/inquiry.php" method="post" data-inquiry-form>
             <label>
               Name *
               <input name="name" autocomplete="name" required data-required-submit>
             </label>
             <label>
               Phone *
-              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required data-required-submit>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="Mobile or phone number" pattern="^[0-9+()\-\s]{6,20}$" required data-required-submit>
             </label>
             <label>
               Email
-              <input type="email" name="email" autocomplete="email">
+              <input type="email" name="email" autocomplete="email" data-email-field>
             </label>
             <label>
               Target product
@@ -389,8 +413,9 @@
             </label>
             <label>
               Requirement details
-              <textarea name="message" rows="5" placeholder="Example: plant culture, 450 L, temperature, humidity and light programs, 4G remote and data logging required"></textarea>
+              <textarea name="message" rows="5" maxlength="200" placeholder="Example: plant culture, 450 L, temperature, humidity and light programs, 4G remote and data logging required"></textarea>
             </label>
+            <p class="form-status" data-form-status aria-live="polite"></p>
             <button class="button primary" type="submit" disabled>Send Inquiry</button>
           </form>
         </div>
