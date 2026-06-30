@@ -97,7 +97,7 @@ document.querySelectorAll(".focus-marquee, .client-marquee").forEach((marquee) =
     marquee.releasePointerCapture?.(event.pointerId);
     resumeTimer = window.setTimeout(() => {
       marquee.classList.remove("is-paused");
-    }, 1000);
+    }, 1200);
   }
 
   marquee.addEventListener("pointerup", endDrag);
