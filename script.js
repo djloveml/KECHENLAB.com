@@ -74,7 +74,8 @@ document.querySelectorAll(".contact-form").forEach((form) => {
         failed: "Submission failed. Please try again later.",
         localPreview: "The form cannot submit from a local file preview. Please open the site through a PHP-enabled web server.",
         networkFailed: "Submission API is unavailable. Please confirm api/inquiry.php is running in a PHP-enabled hosting environment.",
-        correctedEmail: "Email domain spelling was corrected automatically."
+        correctedEmail: "Email domain spelling was corrected automatically.",
+        clear: "Clear"
       }
     : {
         invalidPhone: "请输入有效手机号。",
@@ -85,7 +86,8 @@ document.querySelectorAll(".contact-form").forEach((form) => {
         failed: "提交失败，请稍后重试。",
         localPreview: "本地文件预览无法提交表单，请通过支持 PHP 的网站环境打开页面。",
         networkFailed: "提交接口不可用，请确认 api/inquiry.php 已部署在支持 PHP 的服务器环境。",
-        correctedEmail: "邮箱域名拼写已自动修正。"
+        correctedEmail: "邮箱域名拼写已自动修正。",
+        clear: "清除"
       };
 
   const emailDomainFixes = {
@@ -159,6 +161,34 @@ document.querySelectorAll(".contact-form").forEach((form) => {
     submitButton.disabled = !canSubmit;
   }
 
+  function syncClearButton(field, button) {
+    button.disabled = !field.value;
+  }
+
+  const clearableFields = form.querySelectorAll('input:not([type="hidden"]), textarea');
+  clearableFields.forEach((field) => {
+    const wrapper = document.createElement("span");
+    wrapper.className = "clearable-field";
+    field.parentNode.insertBefore(wrapper, field);
+    wrapper.appendChild(field);
+
+    const clearButton = document.createElement("button");
+    clearButton.className = "field-clear";
+    clearButton.type = "button";
+    clearButton.textContent = text.clear;
+    clearButton.setAttribute("aria-label", text.clear);
+    wrapper.appendChild(clearButton);
+
+    field.addEventListener("input", () => syncClearButton(field, clearButton));
+    clearButton.addEventListener("click", () => {
+      if (!field.value) return;
+      field.value = "";
+      field.dispatchEvent(new Event("input", { bubbles: true }));
+      field.focus();
+    });
+    syncClearButton(field, clearButton);
+  });
+
   requiredFields.forEach((field) => field.addEventListener("input", syncSubmitState));
   emailField?.addEventListener("blur", normalizeEmail);
 
@@ -200,6 +230,9 @@ document.querySelectorAll(".contact-form").forEach((form) => {
       }
 
       form.reset();
+      form.querySelectorAll(".clearable-field input, .clearable-field textarea").forEach((field) => {
+        field.dispatchEvent(new Event("input", { bubbles: true }));
+      });
       setStatus(text.success, "success");
     } catch (error) {
       if (window.location.protocol === "file:") {
