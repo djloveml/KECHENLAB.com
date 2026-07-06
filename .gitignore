@@ -1,0 +1,7 @@
+.agents/
+server.*.log
+*.tmp
+*.bak
+assets/科辰资料/
+data/
+tmp/
